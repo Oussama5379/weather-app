@@ -8,6 +8,7 @@ module.exports = {
 		filename: "main.js",
 		path: path.resolve(__dirname, "dist"),
 		clean: true,
+		assetModuleFilename: "assets/videos/[name][ext][query]",
 	},
 	devtool: "eval-source-map",
 	devServer: {
@@ -23,6 +24,10 @@ module.exports = {
 			{
 				test: /\.css$/i,
 				use: ["style-loader", "css-loader"],
+			},
+			{
+				test: /\.(mp4|webm|ogg)$/i,
+				type: "asset/resource",
 			},
 		],
 	},
